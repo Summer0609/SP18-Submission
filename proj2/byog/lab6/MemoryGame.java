@@ -1,6 +1,7 @@
 package byog.lab6;
 
 import edu.princeton.cs.introcs.StdDraw;
+import edu.princeton.cs.introcs.StdRandom;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -46,14 +47,34 @@ public class MemoryGame {
         //TODO: Initialize random number generator
     }
 
-    public String generateRandomString(int n) {
+    public String generateRandomString(int n, Random r) {
         //TODO: Generate random string of letters of length n
-        return null;
+        StringBuffer rsb = new StringBuffer();
+        for (int i = 0; i < n; i++) {
+            int rp = StdRandom.uniform(0, CHARACTERS.length);
+            rsb.append(rp);
+        }
+        return rsb.toString();
     }
 
+    /*
+    *    Some useful methods:
+    *    1. StdDraw.setFont  2. StdDraw.clear
+    *    3. StdDraw.text     4. StdDraw.setPenColor
+    *    5. StdDraw.show
+    *
+    * */
     public void drawFrame(String s) {
         //TODO: Take the string and display it in the center of the screen
+        int midWidth = width / 2;
+        int midHeight = height / 2;
+        StdDraw.clear(Color.BLACK);
         //TODO: If game is not over, display relevant game information at the top of the screen
+        if (! gameOver) {
+            Font font = new Font("Monaco", Font.BOLD, 20);
+            StdDraw.setFont(font);
+
+        }
     }
 
     public void flashSequence(String letters) {
